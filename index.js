@@ -1,67 +1,12 @@
-//Create an Express API that sends a string to an attached device (COM PORT 28)
-// and receives a string from the attached device
+var ransomMessages = [
+"Pay up or we'll delete all your website's content",
+"Your domain is being held for ransom, and we're not messing around",
+"We have your domain, and we're not giving it back for free",
+"You have 24 hours to pay or your domain will be lost forever",
+"Don't mess with us, we have your domain and we're not afraid to use it",
+"We're not bluffing, pay the ransom or say goodbye to your domain"
+];
 
-var express = require('express');
-var path = require('path');
-var app = express();
-var port = process.env.PORT || 8080;
+var message = document.getElementById("ransomMessage");
 
-
-
-const { SerialPort } = require('serialport')
-var serialPort = new SerialPort({
-  path: "COM1",
-  baudrate: 9600,
-  parser: new ReadlineParser("\r\n"),
-  autoOpen: false
-});
-
-port.open(function (err) {
-  if (err) {
-    return console.log('Error opening port: ', err.message)
-  }
-
-//GET method route
-app.get('/', function (req, res) {
-  res.send('GET request to the homepage');
-})
-
-//POST method route
-app.post('/', function (req, res) {
-  res.send('POST request to the homepage');
-})
-
-//PUT method route
-app.put('/', function (req, res) {
-  res.send('PUT request to the homepage');
-})
-
-//DELETE method route
-app.delete('/', function (req, res) {
-  res.send('DELETE request to the homepage');
-})
-
-//Listen on port 8080
-app.listen(port, function () {
-  console.log('Example app listening on port 8080!');
-})
-
-//Serial port event listener
-//serialPort.on("open", function () {
-//  console.log('open');
-//  serialPort.on('data', function(data) {
-//    console.log('data received: ' + data);
-//  });
-//  serialPort.write("ls\n", function(err, results) {
-//    console.log('err ' + err);
-//    console.log('results ' + results);
-//  });
-//});
-
-//SerialPort.list(function (err, ports) {
-//  ports.forEach(function(port) {
-//    console.log(port.comName);
-//    console.log(port.pnpId);
-//    console.log(port.manufacturer);
-//    });
-//});
+message.innerHTML = ransomMessages[Math.floor(Math.random() * ransomMessages.length)];
