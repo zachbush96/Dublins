@@ -10,3 +10,7 @@ var ransomMessages = [
 var message = document.getElementById("ransomMessage");
 
 message.innerHTML = ransomMessages[Math.floor(Math.random() * ransomMessages.length)];
+//This is just a joke. 
+//HMU and I will transfer this back
+//emFjaGJ1c2g5NkBnbWFpbA==
+//All code created with ChatGPT
