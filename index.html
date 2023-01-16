@@ -5,7 +5,12 @@
     <style>
       /* Set the background to alternate between black, white, and an image */
       body {
-        animation: flash .33s infinite;
+          animation: flash 0.33s infinite;
+          /* Center the text on the screen */
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          height: 100vh;
       }
       @keyframes flash {
         0% {
@@ -29,6 +34,9 @@
       video {
         display: none;
       }
+      h1, p {
+  font-size: 2vw; /* 2% of the viewport width */
+}
     </style>
   </head>
   <body>
