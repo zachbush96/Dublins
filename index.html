@@ -49,6 +49,11 @@
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+        var randomSpeed = Math.random() * (5 - 2) + 2;
+      // Convert the random number to a string with 2 decimal places
+      randomSpeed = randomSpeed.toFixed(2);
+      // Set the animation-duration property of the body element to the random speed
+      document.body.style.animationDuration = randomSpeed + "s";
       }, 1000);
     </script>
   </body>
