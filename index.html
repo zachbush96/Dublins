@@ -1,27 +1,55 @@
+<!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>Ransom Website</title>
-</head>
-<body>
+    <style>
+      /* Set the background to alternate between black, white, and an image */
+      body {
+        animation: flash 5s infinite;
+      }
+      @keyframes flash {
+        0% {
+          background-color: black;
+        }
+        25% {
+          background-color: white;
+        }
+        50% {
+          background-image: url("ransom-image.jpg");
+          background-size: cover;
+        }
+        75% {
+          background-color: white;
+        }
+        100% {
+          background-color: black;
+        }
+      }
+      /* Hide the video element */
+      video {
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
     <h1>Your domain has been kidnapped</h1>
     <p id="ransomMessage"></p>
     <script src="index.js"></script>
     <p id="countdown"></p>
-
-<script>
-  var endDate = new Date("Jan 20, 2023 00:00:00").getTime();
-
-  setInterval(function() {
-    var now = new Date().getTime();
-    var distance = endDate - now;
-    var days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-    
-    document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-  }, 1000);
-</script>
-
-</body>
+    <audio autoplay loop>
+      <source src="https://www.youtube.com/watch?v=RqzGzwTY-6w" type="audio/mp3">
+    </audio>
+    <script>
+      var endDate = new Date("Jan 20, 2023 00:00:00").getTime();
+      setInterval(function() {
+        var now = new Date().getTime();
+        var distance = endDate - now;
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+        document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
+      }, 1000);
+    </script>
+  </body>
 </html>
