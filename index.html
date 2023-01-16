@@ -35,7 +35,20 @@
         display: none;
       }
       h1, p {
-  font-size: 2vw; /* 2% of the viewport width */
+  font-size: 2vw; /* Initial font size */
+  animation: fontSizeChange 2s ease-in-out infinite; /* Animation duration and easing */
+}
+/* Keyframes for the animation */
+@keyframes fontSizeChange {
+  0% {
+    font-size: 2vw; /* Start at 2% of the viewport width */
+  }
+  50% {
+    font-size: 4vw; /* End at 4% of the viewport width */
+  }
+  100% {
+    font-size: 2vw; /* Return to the initial font size */
+  }
 }
     </style>
   </head>
@@ -57,7 +70,7 @@
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         document.getElementById("countdown").innerHTML = days + "d " + hours + "h " + minutes + "m " + seconds + "s ";
-        var randomSpeed = Math.random() * (5 - 2) + 2;
+        var randomSpeed = Math.random() * (5 - 4) + 2;
       // Convert the random number to a string with 2 decimal places
       randomSpeed = randomSpeed.toFixed(2);
       // Set the animation-duration property of the body element to the random speed
